@@ -72,13 +72,14 @@
 
 	#include <stdio.h>
 	#include <string.h>
+	#include <time.h>
 	#include "errormsg.h"
 	#define YYERROR_VERBOSE 1
 
 
 
 /* Line 189 of yacc.c  */
-#line 82 "SPL_parse.c"
+#line 83 "SPL_parse.c"
 
 /* Enabling traces.  */
 #ifndef YYDEBUG
@@ -177,7 +178,7 @@ typedef union YYSTYPE
 {
 
 /* Line 214 of yacc.c  */
-#line 9 "SPL_parse.y"
+#line 10 "SPL_parse.y"
 
 	int ival;
 	double fval;
@@ -192,7 +193,7 @@ typedef union YYSTYPE
 
 
 /* Line 214 of yacc.c  */
-#line 196 "SPL_parse.c"
+#line 197 "SPL_parse.c"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
@@ -217,7 +218,7 @@ typedef struct YYLTYPE
 
 
 /* Line 264 of yacc.c  */
-#line 221 "SPL_parse.c"
+#line 222 "SPL_parse.c"
 
 #ifdef short
 # undef short
@@ -562,20 +563,20 @@ static const yytype_int8 yyrhs[] =
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint16 yyrline[] =
 {
-       0,    47,    47,    50,    53,    55,    57,    60,    61,    63,
-      64,    66,    67,    69,    70,    71,    72,    73,    75,    76,
-      78,    79,    81,    83,    84,    85,    87,    88,    89,    91,
-      93,    94,    95,    96,    98,   100,   101,   103,   105,   106,
-     108,   109,   111,   112,   114,   116,   117,   118,   119,   120,
-     122,   124,   126,   128,   130,   131,   133,   134,   136,   137,
-     139,   141,   143,   145,   147,   148,   150,   151,   153,   154,
-     155,   156,   157,   158,   159,   160,   161,   163,   164,   165,
-     167,   168,   169,   170,   171,   173,   175,   176,   178,   180,
-     182,   184,   185,   187,   189,   190,   192,   193,   195,   197,
-     198,   200,   201,   202,   203,   204,   205,   206,   208,   209,
-     210,   211,   213,   214,   215,   216,   217,   219,   220,   221,
-     222,   223,   224,   225,   226,   227,   228,   230,   231,   235,
-     236,   243,   255,   261
+       0,    48,    48,    51,    54,    56,    58,    61,    62,    64,
+      65,    67,    68,    70,    71,    72,    73,    74,    76,    77,
+      79,    80,    82,    84,    85,    86,    88,    89,    90,    92,
+      94,    95,    96,    97,    99,   101,   102,   104,   106,   107,
+     109,   110,   112,   113,   115,   117,   118,   119,   120,   121,
+     123,   125,   127,   129,   131,   132,   134,   135,   137,   138,
+     140,   142,   144,   146,   148,   149,   151,   152,   154,   155,
+     156,   157,   158,   159,   160,   161,   162,   164,   165,   166,
+     168,   169,   170,   171,   172,   174,   176,   177,   179,   181,
+     183,   185,   186,   188,   190,   191,   193,   194,   196,   198,
+     199,   201,   202,   203,   204,   205,   206,   207,   209,   210,
+     211,   212,   214,   215,   216,   217,   218,   220,   221,   222,
+     223,   224,   225,   226,   227,   228,   229,   231,   232,   236,
+     237,   244,   256,   262
 };
 #endif
 
@@ -1727,903 +1728,903 @@ yyreduce:
         case 2:
 
 /* Line 1455 of yacc.c  */
-#line 47 "SPL_parse.y"
+#line 48 "SPL_parse.y"
     {;}
     break;
 
   case 3:
 
 /* Line 1455 of yacc.c  */
-#line 50 "SPL_parse.y"
+#line 51 "SPL_parse.y"
     {;}
     break;
 
   case 4:
 
 /* Line 1455 of yacc.c  */
-#line 53 "SPL_parse.y"
+#line 54 "SPL_parse.y"
     {;}
     break;
 
   case 5:
 
 /* Line 1455 of yacc.c  */
-#line 55 "SPL_parse.y"
+#line 56 "SPL_parse.y"
     {;}
     break;
 
   case 6:
 
 /* Line 1455 of yacc.c  */
-#line 57 "SPL_parse.y"
+#line 58 "SPL_parse.y"
     {;}
     break;
 
   case 7:
 
 /* Line 1455 of yacc.c  */
-#line 60 "SPL_parse.y"
+#line 61 "SPL_parse.y"
     {;}
     break;
 
   case 8:
 
 /* Line 1455 of yacc.c  */
-#line 61 "SPL_parse.y"
+#line 62 "SPL_parse.y"
     {;}
     break;
 
   case 9:
 
 /* Line 1455 of yacc.c  */
-#line 63 "SPL_parse.y"
+#line 64 "SPL_parse.y"
     {;}
     break;
 
   case 10:
 
 /* Line 1455 of yacc.c  */
-#line 64 "SPL_parse.y"
+#line 65 "SPL_parse.y"
     {;}
     break;
 
   case 11:
 
 /* Line 1455 of yacc.c  */
-#line 66 "SPL_parse.y"
+#line 67 "SPL_parse.y"
     {;}
     break;
 
   case 12:
 
 /* Line 1455 of yacc.c  */
-#line 67 "SPL_parse.y"
+#line 68 "SPL_parse.y"
     {;}
     break;
 
   case 13:
 
 /* Line 1455 of yacc.c  */
-#line 69 "SPL_parse.y"
+#line 70 "SPL_parse.y"
     {;}
     break;
 
   case 14:
 
 /* Line 1455 of yacc.c  */
-#line 70 "SPL_parse.y"
+#line 71 "SPL_parse.y"
     {;}
     break;
 
   case 15:
 
 /* Line 1455 of yacc.c  */
-#line 71 "SPL_parse.y"
+#line 72 "SPL_parse.y"
     {;}
     break;
 
   case 16:
 
 /* Line 1455 of yacc.c  */
-#line 72 "SPL_parse.y"
+#line 73 "SPL_parse.y"
     {;}
     break;
 
   case 17:
 
 /* Line 1455 of yacc.c  */
-#line 73 "SPL_parse.y"
+#line 74 "SPL_parse.y"
     {;}
     break;
 
   case 18:
 
 /* Line 1455 of yacc.c  */
-#line 75 "SPL_parse.y"
+#line 76 "SPL_parse.y"
     {;}
     break;
 
   case 19:
 
 /* Line 1455 of yacc.c  */
-#line 76 "SPL_parse.y"
+#line 77 "SPL_parse.y"
     {;}
     break;
 
   case 20:
 
 /* Line 1455 of yacc.c  */
-#line 78 "SPL_parse.y"
+#line 79 "SPL_parse.y"
     {;}
     break;
 
   case 21:
 
 /* Line 1455 of yacc.c  */
-#line 79 "SPL_parse.y"
+#line 80 "SPL_parse.y"
     {;}
     break;
 
   case 22:
 
 /* Line 1455 of yacc.c  */
-#line 81 "SPL_parse.y"
+#line 82 "SPL_parse.y"
     {;}
     break;
 
   case 23:
 
 /* Line 1455 of yacc.c  */
-#line 83 "SPL_parse.y"
+#line 84 "SPL_parse.y"
     {;}
     break;
 
   case 24:
 
 /* Line 1455 of yacc.c  */
-#line 84 "SPL_parse.y"
+#line 85 "SPL_parse.y"
     {;}
     break;
 
   case 25:
 
 /* Line 1455 of yacc.c  */
-#line 85 "SPL_parse.y"
+#line 86 "SPL_parse.y"
     {;}
     break;
 
   case 26:
 
 /* Line 1455 of yacc.c  */
-#line 87 "SPL_parse.y"
+#line 88 "SPL_parse.y"
     {;}
     break;
 
   case 27:
 
 /* Line 1455 of yacc.c  */
-#line 88 "SPL_parse.y"
+#line 89 "SPL_parse.y"
     {;}
     break;
 
   case 28:
 
 /* Line 1455 of yacc.c  */
-#line 89 "SPL_parse.y"
+#line 90 "SPL_parse.y"
     {;}
     break;
 
   case 29:
 
 /* Line 1455 of yacc.c  */
-#line 91 "SPL_parse.y"
+#line 92 "SPL_parse.y"
     {;}
     break;
 
   case 30:
 
 /* Line 1455 of yacc.c  */
-#line 93 "SPL_parse.y"
+#line 94 "SPL_parse.y"
     {;}
     break;
 
   case 31:
 
 /* Line 1455 of yacc.c  */
-#line 94 "SPL_parse.y"
+#line 95 "SPL_parse.y"
     {;}
     break;
 
   case 32:
 
 /* Line 1455 of yacc.c  */
-#line 95 "SPL_parse.y"
+#line 96 "SPL_parse.y"
     {;}
     break;
 
   case 33:
 
 /* Line 1455 of yacc.c  */
-#line 96 "SPL_parse.y"
+#line 97 "SPL_parse.y"
     {;}
     break;
 
   case 34:
 
 /* Line 1455 of yacc.c  */
-#line 98 "SPL_parse.y"
+#line 99 "SPL_parse.y"
     {;}
     break;
 
   case 35:
 
 /* Line 1455 of yacc.c  */
-#line 100 "SPL_parse.y"
+#line 101 "SPL_parse.y"
     {;}
     break;
 
   case 36:
 
 /* Line 1455 of yacc.c  */
-#line 101 "SPL_parse.y"
+#line 102 "SPL_parse.y"
     {;}
     break;
 
   case 37:
 
 /* Line 1455 of yacc.c  */
-#line 103 "SPL_parse.y"
+#line 104 "SPL_parse.y"
     {;}
     break;
 
   case 38:
 
 /* Line 1455 of yacc.c  */
-#line 105 "SPL_parse.y"
+#line 106 "SPL_parse.y"
     {;}
     break;
 
   case 39:
 
 /* Line 1455 of yacc.c  */
-#line 106 "SPL_parse.y"
+#line 107 "SPL_parse.y"
     {;}
     break;
 
   case 40:
 
 /* Line 1455 of yacc.c  */
-#line 108 "SPL_parse.y"
+#line 109 "SPL_parse.y"
     {;}
     break;
 
   case 41:
 
 /* Line 1455 of yacc.c  */
-#line 109 "SPL_parse.y"
+#line 110 "SPL_parse.y"
     {;}
     break;
 
   case 42:
 
 /* Line 1455 of yacc.c  */
-#line 111 "SPL_parse.y"
+#line 112 "SPL_parse.y"
     {;}
     break;
 
   case 43:
 
 /* Line 1455 of yacc.c  */
-#line 112 "SPL_parse.y"
+#line 113 "SPL_parse.y"
     {;}
     break;
 
   case 44:
 
 /* Line 1455 of yacc.c  */
-#line 114 "SPL_parse.y"
+#line 115 "SPL_parse.y"
     {;}
     break;
 
   case 45:
 
 /* Line 1455 of yacc.c  */
-#line 116 "SPL_parse.y"
+#line 117 "SPL_parse.y"
     {;}
     break;
 
   case 46:
 
 /* Line 1455 of yacc.c  */
-#line 117 "SPL_parse.y"
+#line 118 "SPL_parse.y"
     {;}
     break;
 
   case 47:
 
 /* Line 1455 of yacc.c  */
-#line 118 "SPL_parse.y"
+#line 119 "SPL_parse.y"
     {;}
     break;
 
   case 48:
 
 /* Line 1455 of yacc.c  */
-#line 119 "SPL_parse.y"
+#line 120 "SPL_parse.y"
     {;}
     break;
 
   case 49:
 
 /* Line 1455 of yacc.c  */
-#line 120 "SPL_parse.y"
+#line 121 "SPL_parse.y"
     {;}
     break;
 
   case 50:
 
 /* Line 1455 of yacc.c  */
-#line 122 "SPL_parse.y"
+#line 123 "SPL_parse.y"
     {;}
     break;
 
   case 51:
 
 /* Line 1455 of yacc.c  */
-#line 124 "SPL_parse.y"
+#line 125 "SPL_parse.y"
     {;}
     break;
 
   case 52:
 
 /* Line 1455 of yacc.c  */
-#line 126 "SPL_parse.y"
+#line 127 "SPL_parse.y"
     {;}
     break;
 
   case 53:
 
 /* Line 1455 of yacc.c  */
-#line 128 "SPL_parse.y"
+#line 129 "SPL_parse.y"
     {;}
     break;
 
   case 54:
 
 /* Line 1455 of yacc.c  */
-#line 130 "SPL_parse.y"
+#line 131 "SPL_parse.y"
     {;}
     break;
 
   case 55:
 
 /* Line 1455 of yacc.c  */
-#line 131 "SPL_parse.y"
+#line 132 "SPL_parse.y"
     {;}
     break;
 
   case 56:
 
 /* Line 1455 of yacc.c  */
-#line 133 "SPL_parse.y"
+#line 134 "SPL_parse.y"
     {;}
     break;
 
   case 57:
 
 /* Line 1455 of yacc.c  */
-#line 134 "SPL_parse.y"
+#line 135 "SPL_parse.y"
     {;}
     break;
 
   case 58:
 
 /* Line 1455 of yacc.c  */
-#line 136 "SPL_parse.y"
+#line 137 "SPL_parse.y"
     {;}
     break;
 
   case 59:
 
 /* Line 1455 of yacc.c  */
-#line 137 "SPL_parse.y"
+#line 138 "SPL_parse.y"
     {;}
     break;
 
   case 60:
 
 /* Line 1455 of yacc.c  */
-#line 139 "SPL_parse.y"
+#line 140 "SPL_parse.y"
     {;}
     break;
 
   case 61:
 
 /* Line 1455 of yacc.c  */
-#line 141 "SPL_parse.y"
+#line 142 "SPL_parse.y"
     {;}
     break;
 
   case 62:
 
 /* Line 1455 of yacc.c  */
-#line 143 "SPL_parse.y"
+#line 144 "SPL_parse.y"
     {;}
     break;
 
   case 63:
 
 /* Line 1455 of yacc.c  */
-#line 145 "SPL_parse.y"
+#line 146 "SPL_parse.y"
     {;}
     break;
 
   case 64:
 
 /* Line 1455 of yacc.c  */
-#line 147 "SPL_parse.y"
+#line 148 "SPL_parse.y"
     {;}
     break;
 
   case 65:
 
 /* Line 1455 of yacc.c  */
-#line 148 "SPL_parse.y"
+#line 149 "SPL_parse.y"
     {;}
     break;
 
   case 66:
 
 /* Line 1455 of yacc.c  */
-#line 150 "SPL_parse.y"
+#line 151 "SPL_parse.y"
     {;}
     break;
 
   case 67:
 
 /* Line 1455 of yacc.c  */
-#line 151 "SPL_parse.y"
+#line 152 "SPL_parse.y"
     {;}
     break;
 
   case 68:
 
 /* Line 1455 of yacc.c  */
-#line 153 "SPL_parse.y"
+#line 154 "SPL_parse.y"
     {;}
     break;
 
   case 69:
 
 /* Line 1455 of yacc.c  */
-#line 154 "SPL_parse.y"
+#line 155 "SPL_parse.y"
     {;}
     break;
 
   case 70:
 
 /* Line 1455 of yacc.c  */
-#line 155 "SPL_parse.y"
+#line 156 "SPL_parse.y"
     {;}
     break;
 
   case 71:
 
 /* Line 1455 of yacc.c  */
-#line 156 "SPL_parse.y"
+#line 157 "SPL_parse.y"
     {;}
     break;
 
   case 72:
 
 /* Line 1455 of yacc.c  */
-#line 157 "SPL_parse.y"
+#line 158 "SPL_parse.y"
     {;}
     break;
 
   case 73:
 
 /* Line 1455 of yacc.c  */
-#line 158 "SPL_parse.y"
+#line 159 "SPL_parse.y"
     {;}
     break;
 
   case 74:
 
 /* Line 1455 of yacc.c  */
-#line 159 "SPL_parse.y"
+#line 160 "SPL_parse.y"
     {;}
     break;
 
   case 75:
 
 /* Line 1455 of yacc.c  */
-#line 160 "SPL_parse.y"
+#line 161 "SPL_parse.y"
     {;}
     break;
 
   case 76:
 
 /* Line 1455 of yacc.c  */
-#line 161 "SPL_parse.y"
+#line 162 "SPL_parse.y"
     {;}
     break;
 
   case 77:
 
 /* Line 1455 of yacc.c  */
-#line 163 "SPL_parse.y"
+#line 164 "SPL_parse.y"
     {;}
     break;
 
   case 78:
 
 /* Line 1455 of yacc.c  */
-#line 164 "SPL_parse.y"
+#line 165 "SPL_parse.y"
     {/*array element*/;}
     break;
 
   case 79:
 
 /* Line 1455 of yacc.c  */
-#line 165 "SPL_parse.y"
+#line 166 "SPL_parse.y"
     {/*record element*/;}
     break;
 
   case 80:
 
 /* Line 1455 of yacc.c  */
-#line 167 "SPL_parse.y"
+#line 168 "SPL_parse.y"
     {;}
     break;
 
   case 81:
 
 /* Line 1455 of yacc.c  */
-#line 168 "SPL_parse.y"
+#line 169 "SPL_parse.y"
     {;}
     break;
 
   case 82:
 
 /* Line 1455 of yacc.c  */
-#line 169 "SPL_parse.y"
+#line 170 "SPL_parse.y"
     {;}
     break;
 
   case 83:
 
 /* Line 1455 of yacc.c  */
-#line 170 "SPL_parse.y"
+#line 171 "SPL_parse.y"
     {;}
     break;
 
   case 84:
 
 /* Line 1455 of yacc.c  */
-#line 171 "SPL_parse.y"
+#line 172 "SPL_parse.y"
     {;}
     break;
 
   case 85:
 
 /* Line 1455 of yacc.c  */
-#line 173 "SPL_parse.y"
+#line 174 "SPL_parse.y"
     {;}
     break;
 
   case 86:
 
 /* Line 1455 of yacc.c  */
-#line 175 "SPL_parse.y"
+#line 176 "SPL_parse.y"
     {;}
     break;
 
   case 87:
 
 /* Line 1455 of yacc.c  */
-#line 176 "SPL_parse.y"
+#line 177 "SPL_parse.y"
     {;}
     break;
 
   case 88:
 
 /* Line 1455 of yacc.c  */
-#line 178 "SPL_parse.y"
+#line 179 "SPL_parse.y"
     {;}
     break;
 
   case 89:
 
 /* Line 1455 of yacc.c  */
-#line 180 "SPL_parse.y"
+#line 181 "SPL_parse.y"
     {;}
     break;
 
   case 90:
 
 /* Line 1455 of yacc.c  */
-#line 182 "SPL_parse.y"
+#line 183 "SPL_parse.y"
     {;}
     break;
 
   case 91:
 
 /* Line 1455 of yacc.c  */
-#line 184 "SPL_parse.y"
+#line 185 "SPL_parse.y"
     {;}
     break;
 
   case 92:
 
 /* Line 1455 of yacc.c  */
-#line 185 "SPL_parse.y"
+#line 186 "SPL_parse.y"
     {;}
     break;
 
   case 93:
 
 /* Line 1455 of yacc.c  */
-#line 187 "SPL_parse.y"
+#line 188 "SPL_parse.y"
     {;}
     break;
 
   case 94:
 
 /* Line 1455 of yacc.c  */
-#line 189 "SPL_parse.y"
+#line 190 "SPL_parse.y"
     {;}
     break;
 
   case 95:
 
 /* Line 1455 of yacc.c  */
-#line 190 "SPL_parse.y"
+#line 191 "SPL_parse.y"
     {;}
     break;
 
   case 96:
 
 /* Line 1455 of yacc.c  */
-#line 192 "SPL_parse.y"
+#line 193 "SPL_parse.y"
     {;}
     break;
 
   case 97:
 
 /* Line 1455 of yacc.c  */
-#line 193 "SPL_parse.y"
+#line 194 "SPL_parse.y"
     {;}
     break;
 
   case 98:
 
 /* Line 1455 of yacc.c  */
-#line 195 "SPL_parse.y"
+#line 196 "SPL_parse.y"
     {;}
     break;
 
   case 99:
 
 /* Line 1455 of yacc.c  */
-#line 197 "SPL_parse.y"
+#line 198 "SPL_parse.y"
     {;}
     break;
 
   case 100:
 
 /* Line 1455 of yacc.c  */
-#line 198 "SPL_parse.y"
+#line 199 "SPL_parse.y"
     {;}
     break;
 
   case 101:
 
 /* Line 1455 of yacc.c  */
-#line 200 "SPL_parse.y"
+#line 201 "SPL_parse.y"
     {;}
     break;
 
   case 102:
 
 /* Line 1455 of yacc.c  */
-#line 201 "SPL_parse.y"
+#line 202 "SPL_parse.y"
     {;}
     break;
 
   case 103:
 
 /* Line 1455 of yacc.c  */
-#line 202 "SPL_parse.y"
+#line 203 "SPL_parse.y"
     {;}
     break;
 
   case 104:
 
 /* Line 1455 of yacc.c  */
-#line 203 "SPL_parse.y"
+#line 204 "SPL_parse.y"
     {;}
     break;
 
   case 105:
 
 /* Line 1455 of yacc.c  */
-#line 204 "SPL_parse.y"
+#line 205 "SPL_parse.y"
     {;}
     break;
 
   case 106:
 
 /* Line 1455 of yacc.c  */
-#line 205 "SPL_parse.y"
+#line 206 "SPL_parse.y"
     {;}
     break;
 
   case 107:
 
 /* Line 1455 of yacc.c  */
-#line 206 "SPL_parse.y"
+#line 207 "SPL_parse.y"
     {;}
     break;
 
   case 108:
 
 /* Line 1455 of yacc.c  */
-#line 208 "SPL_parse.y"
+#line 209 "SPL_parse.y"
     {;}
     break;
 
   case 109:
 
 /* Line 1455 of yacc.c  */
-#line 209 "SPL_parse.y"
+#line 210 "SPL_parse.y"
     {;}
     break;
 
   case 110:
 
 /* Line 1455 of yacc.c  */
-#line 210 "SPL_parse.y"
+#line 211 "SPL_parse.y"
     {;}
     break;
 
   case 111:
 
 /* Line 1455 of yacc.c  */
-#line 211 "SPL_parse.y"
+#line 212 "SPL_parse.y"
     {;}
     break;
 
   case 112:
 
 /* Line 1455 of yacc.c  */
-#line 213 "SPL_parse.y"
+#line 214 "SPL_parse.y"
     {;}
     break;
 
   case 113:
 
 /* Line 1455 of yacc.c  */
-#line 214 "SPL_parse.y"
+#line 215 "SPL_parse.y"
     {;}
     break;
 
   case 114:
 
 /* Line 1455 of yacc.c  */
-#line 215 "SPL_parse.y"
+#line 216 "SPL_parse.y"
     {;}
     break;
 
   case 115:
 
 /* Line 1455 of yacc.c  */
-#line 216 "SPL_parse.y"
+#line 217 "SPL_parse.y"
     {;}
     break;
 
   case 116:
 
 /* Line 1455 of yacc.c  */
-#line 217 "SPL_parse.y"
+#line 218 "SPL_parse.y"
     {;}
     break;
 
   case 117:
 
 /* Line 1455 of yacc.c  */
-#line 219 "SPL_parse.y"
+#line 220 "SPL_parse.y"
     {;}
     break;
 
   case 118:
 
 /* Line 1455 of yacc.c  */
-#line 220 "SPL_parse.y"
+#line 221 "SPL_parse.y"
     {/*self-defined function with parameters*/;}
     break;
 
   case 119:
 
 /* Line 1455 of yacc.c  */
-#line 221 "SPL_parse.y"
+#line 222 "SPL_parse.y"
     {;}
     break;
 
   case 120:
 
 /* Line 1455 of yacc.c  */
-#line 222 "SPL_parse.y"
+#line 223 "SPL_parse.y"
     {;}
     break;
 
   case 121:
 
 /* Line 1455 of yacc.c  */
-#line 223 "SPL_parse.y"
+#line 224 "SPL_parse.y"
     {;}
     break;
 
   case 122:
 
 /* Line 1455 of yacc.c  */
-#line 224 "SPL_parse.y"
+#line 225 "SPL_parse.y"
     {;}
     break;
 
   case 123:
 
 /* Line 1455 of yacc.c  */
-#line 225 "SPL_parse.y"
+#line 226 "SPL_parse.y"
     {;}
     break;
 
   case 124:
 
 /* Line 1455 of yacc.c  */
-#line 226 "SPL_parse.y"
+#line 227 "SPL_parse.y"
     {;}
     break;
 
   case 125:
 
 /* Line 1455 of yacc.c  */
-#line 227 "SPL_parse.y"
+#line 228 "SPL_parse.y"
     {;}
     break;
 
   case 126:
 
 /* Line 1455 of yacc.c  */
-#line 228 "SPL_parse.y"
+#line 229 "SPL_parse.y"
     {;}
     break;
 
   case 127:
 
 /* Line 1455 of yacc.c  */
-#line 230 "SPL_parse.y"
+#line 231 "SPL_parse.y"
     {;}
     break;
 
   case 128:
 
 /* Line 1455 of yacc.c  */
-#line 231 "SPL_parse.y"
+#line 232 "SPL_parse.y"
     {;}
     break;
 
   case 129:
 
 /* Line 1455 of yacc.c  */
-#line 235 "SPL_parse.y"
+#line 236 "SPL_parse.y"
     {(yyval.sval) = (yyvsp[(1) - (1)].sval);;}
     break;
 
   case 130:
 
 /* Line 1455 of yacc.c  */
-#line 236 "SPL_parse.y"
+#line 237 "SPL_parse.y"
     {
 		switch((yyvsp[(1) - (1)].conval)){
 			case SYS_CON_FALSE:  (yyval.sval) = "false"; break;
@@ -2636,7 +2637,7 @@ yyreduce:
   case 131:
 
 /* Line 1455 of yacc.c  */
-#line 243 "SPL_parse.y"
+#line 244 "SPL_parse.y"
     {
 		switch((yyvsp[(1) - (1)].functval)){
 			case SYS_FUNCT_ABS: (yyval.sval) = "abs"; break;
@@ -2654,7 +2655,7 @@ yyreduce:
   case 132:
 
 /* Line 1455 of yacc.c  */
-#line 255 "SPL_parse.y"
+#line 256 "SPL_parse.y"
     {
 		switch((yyvsp[(1) - (1)].procval)){
 			case SYS_PROC_WRITE:   (yyval.sval) = "write"; break;
@@ -2666,7 +2667,7 @@ yyreduce:
   case 133:
 
 /* Line 1455 of yacc.c  */
-#line 261 "SPL_parse.y"
+#line 262 "SPL_parse.y"
     {
 		switch((yyvsp[(1) - (1)].typeval)){
 			case SYS_TYPE_BOOLEAN: (yyval.sval) = "boolean"; break;
@@ -2680,7 +2681,7 @@ yyreduce:
 
 
 /* Line 1455 of yacc.c  */
-#line 2684 "SPL_parse.c"
+#line 2685 "SPL_parse.c"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -2899,10 +2900,17 @@ yyreturn:
 
 
 /* Line 1675 of yacc.c  */
-#line 270 "SPL_parse.y"
+#line 271 "SPL_parse.y"
 
 int main(){
+	time_t startTime, endTime;
+	startTime = time(NULL);
 	yyparse();
+	endTime = time(NULL);
+	
+	printf("Errors: %d\n", errorNum);
+	printf("Parsing Time: %f seconds\n", difftime(endTime, startTime));
+	
 	return 0;
 }
 

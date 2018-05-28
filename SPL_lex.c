@@ -513,13 +513,14 @@ char *yytext;
 	#include <string.h>
 	#include "SPL_parse.h"
 	#include "errormsg.h"
+	#include "utils.h"
 #define STRING_CHAR_MATCH 1
 #define STRING_MATCHED 2
 #define CHAR_MATCHED 3
 #define COMMENT_PARENTHESE 4
 #define COMMENT_BRACE 5
 
-#line 523 "SPL_lex.c"
+#line 524 "SPL_lex.c"
 
 /* Macros after this point can all be overridden by user definitions in
  * section 1.
@@ -670,9 +671,9 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
 
-#line 17 "SPL_lex.l"
+#line 18 "SPL_lex.l"
 
-#line 676 "SPL_lex.c"
+#line 677 "SPL_lex.c"
 
 	if ( yy_init )
 		{
@@ -757,440 +758,440 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 18 "SPL_lex.l"
+#line 19 "SPL_lex.l"
 {AdjustPos(yytext);}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 19 "SPL_lex.l"
+#line 20 "SPL_lex.l"
 {NewLine();}
 	YY_BREAK
 /*comment*/
 case 3:
 YY_RULE_SETUP
-#line 22 "SPL_lex.l"
+#line 23 "SPL_lex.l"
 {AdjustPos(yytext); BEGIN COMMENT_PARENTHESE;}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 23 "SPL_lex.l"
+#line 24 "SPL_lex.l"
 {AdjustPos(yytext); BEGIN COMMENT_BRACE;}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 24 "SPL_lex.l"
+#line 25 "SPL_lex.l"
 {AdjustPos(yytext); BEGIN INITIAL;}
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 25 "SPL_lex.l"
+#line 26 "SPL_lex.l"
 {AdjustPos(yytext); BEGIN INITIAL;}
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 26 "SPL_lex.l"
+#line 27 "SPL_lex.l"
 {AdjustPos(yytext);}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 27 "SPL_lex.l"
+#line 28 "SPL_lex.l"
 {AdjustPos(yytext);}
 	YY_BREAK
 /*operators*/
 case 9:
 YY_RULE_SETUP
-#line 30 "SPL_lex.l"
+#line 31 "SPL_lex.l"
 {AdjustPos(yytext);return T_LP;}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 31 "SPL_lex.l"
+#line 32 "SPL_lex.l"
 {AdjustPos(yytext);return T_RP;}
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 32 "SPL_lex.l"
+#line 33 "SPL_lex.l"
 {AdjustPos(yytext);return T_LB;}
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 33 "SPL_lex.l"
+#line 34 "SPL_lex.l"
 {AdjustPos(yytext);return T_RB;}
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 34 "SPL_lex.l"
+#line 35 "SPL_lex.l"
 {AdjustPos(yytext);return T_DOT;}
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 35 "SPL_lex.l"
+#line 36 "SPL_lex.l"
 {AdjustPos(yytext);return T_COMMA;}
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 36 "SPL_lex.l"
+#line 37 "SPL_lex.l"
 {AdjustPos(yytext);return T_COLON ;}
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 37 "SPL_lex.l"
+#line 38 "SPL_lex.l"
 {AdjustPos(yytext);return T_MUL ;}
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 38 "SPL_lex.l"
+#line 39 "SPL_lex.l"
 {AdjustPos(yytext);return T_DIV ;}
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 39 "SPL_lex.l"
+#line 40 "SPL_lex.l"
 {AdjustPos(yytext);return T_UNEQUAL ;}
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 40 "SPL_lex.l"
+#line 41 "SPL_lex.l"
 {AdjustPos(yytext);return T_NOT ;}
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 41 "SPL_lex.l"
+#line 42 "SPL_lex.l"
 {AdjustPos(yytext);return T_PLUS ;}
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 42 "SPL_lex.l"
+#line 43 "SPL_lex.l"
 {AdjustPos(yytext);return T_MINUS ;}
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 43 "SPL_lex.l"
+#line 44 "SPL_lex.l"
 {AdjustPos(yytext);return T_GE ;}
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 44 "SPL_lex.l"
+#line 45 "SPL_lex.l"
 {AdjustPos(yytext);return T_GT ;}
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 45 "SPL_lex.l"
+#line 46 "SPL_lex.l"
 {AdjustPos(yytext);return T_LE ;}
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 46 "SPL_lex.l"
+#line 47 "SPL_lex.l"
 {AdjustPos(yytext);return T_LT ;}
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 47 "SPL_lex.l"
+#line 48 "SPL_lex.l"
 {AdjustPos(yytext);return T_EQUAL ;}
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 48 "SPL_lex.l"
+#line 49 "SPL_lex.l"
 {AdjustPos(yytext);return T_ASSIGN ;}
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 49 "SPL_lex.l"
+#line 50 "SPL_lex.l"
 {AdjustPos(yytext);return T_MOD ;}
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 50 "SPL_lex.l"
+#line 51 "SPL_lex.l"
 {AdjustPos(yytext);return T_DOTDOT;}
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 51 "SPL_lex.l"
+#line 52 "SPL_lex.l"
 {AdjustPos(yytext);return T_SEMI ;}
 	YY_BREAK
 /*system words*/
 case 31:
 YY_RULE_SETUP
-#line 54 "SPL_lex.l"
+#line 55 "SPL_lex.l"
 {AdjustPos(yytext);yylval.conval = SYS_CON_FALSE; return T_SYS_CON;}
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 55 "SPL_lex.l"
+#line 56 "SPL_lex.l"
 {AdjustPos(yytext);yylval.conval = SYS_CON_MAXINT; return T_SYS_CON;}
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
-#line 56 "SPL_lex.l"
+#line 57 "SPL_lex.l"
 {AdjustPos(yytext);yylval.conval = SYS_CON_TRUE; return T_SYS_CON;}
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
-#line 57 "SPL_lex.l"
+#line 58 "SPL_lex.l"
 {AdjustPos(yytext);yylval.functval = SYS_FUNCT_ABS; return T_SYS_FUNCT;}
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
-#line 58 "SPL_lex.l"
+#line 59 "SPL_lex.l"
 {AdjustPos(yytext);yylval.functval = SYS_FUNCT_CHR; return T_SYS_FUNCT;}
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
-#line 59 "SPL_lex.l"
+#line 60 "SPL_lex.l"
 {AdjustPos(yytext);yylval.functval = SYS_FUNCT_ODD; return T_SYS_FUNCT;}
 	YY_BREAK
 case 37:
 YY_RULE_SETUP
-#line 60 "SPL_lex.l"
+#line 61 "SPL_lex.l"
 {AdjustPos(yytext);yylval.functval = SYS_FUNCT_ORD; return T_SYS_FUNCT;}
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
-#line 61 "SPL_lex.l"
+#line 62 "SPL_lex.l"
 {AdjustPos(yytext);yylval.functval = SYS_FUNCT_PRED; return T_SYS_FUNCT;}
 	YY_BREAK
 case 39:
 YY_RULE_SETUP
-#line 62 "SPL_lex.l"
+#line 63 "SPL_lex.l"
 {AdjustPos(yytext);yylval.functval = SYS_FUNCT_SQR; return T_SYS_FUNCT;}
 	YY_BREAK
 case 40:
 YY_RULE_SETUP
-#line 63 "SPL_lex.l"
+#line 64 "SPL_lex.l"
 {AdjustPos(yytext);yylval.functval = SYS_FUNCT_SQRT; return T_SYS_FUNCT;}
 	YY_BREAK
 case 41:
 YY_RULE_SETUP
-#line 64 "SPL_lex.l"
+#line 65 "SPL_lex.l"
 {AdjustPos(yytext);yylval.functval = SYS_FUNCT_SUCC; return T_SYS_FUNCT;}
 	YY_BREAK
 case 42:
 YY_RULE_SETUP
-#line 65 "SPL_lex.l"
+#line 66 "SPL_lex.l"
 {AdjustPos(yytext);yylval.procval = SYS_PROC_WRITE; return T_SYS_PROC;}
 	YY_BREAK
 case 43:
 YY_RULE_SETUP
-#line 66 "SPL_lex.l"
+#line 67 "SPL_lex.l"
 {AdjustPos(yytext);yylval.procval = SYS_PROC_WRITELN; return T_SYS_PROC;}
 	YY_BREAK
 case 44:
 YY_RULE_SETUP
-#line 67 "SPL_lex.l"
+#line 68 "SPL_lex.l"
 {AdjustPos(yytext);yylval.typeval = SYS_TYPE_BOOLEAN; return T_SYS_TYPE;}
 	YY_BREAK
 case 45:
 YY_RULE_SETUP
-#line 68 "SPL_lex.l"
+#line 69 "SPL_lex.l"
 {AdjustPos(yytext);yylval.typeval = SYS_TYPE_CHAR; return T_SYS_TYPE;}
 	YY_BREAK
 case 46:
 YY_RULE_SETUP
-#line 69 "SPL_lex.l"
+#line 70 "SPL_lex.l"
 {AdjustPos(yytext);yylval.typeval = SYS_TYPE_INTEGER; return T_SYS_TYPE;}
 	YY_BREAK
 case 47:
 YY_RULE_SETUP
-#line 70 "SPL_lex.l"
+#line 71 "SPL_lex.l"
 {AdjustPos(yytext);yylval.typeval = SYS_TYPE_REAL; return T_SYS_TYPE;}
 	YY_BREAK
 case 48:
 YY_RULE_SETUP
-#line 72 "SPL_lex.l"
+#line 73 "SPL_lex.l"
 {AdjustPos(yytext);return T_READ;}
 	YY_BREAK
 /*keyword list*/
 case 49:
 YY_RULE_SETUP
-#line 75 "SPL_lex.l"
+#line 76 "SPL_lex.l"
 {AdjustPos(yytext);return T_AND;}
 	YY_BREAK
 case 50:
 YY_RULE_SETUP
-#line 76 "SPL_lex.l"
+#line 77 "SPL_lex.l"
 {AdjustPos(yytext);return T_ARRAY;}
 	YY_BREAK
 case 51:
 YY_RULE_SETUP
-#line 77 "SPL_lex.l"
+#line 78 "SPL_lex.l"
 {AdjustPos(yytext);return T_BEGIN;}
 	YY_BREAK
 case 52:
 YY_RULE_SETUP
-#line 78 "SPL_lex.l"
+#line 79 "SPL_lex.l"
 {AdjustPos(yytext);return T_CASE;}
 	YY_BREAK
 case 53:
 YY_RULE_SETUP
-#line 79 "SPL_lex.l"
+#line 80 "SPL_lex.l"
 {AdjustPos(yytext);return T_CONST;}
 	YY_BREAK
 case 54:
 YY_RULE_SETUP
-#line 80 "SPL_lex.l"
+#line 81 "SPL_lex.l"
 {AdjustPos(yytext);return T_DIV;}
 	YY_BREAK
 case 55:
 YY_RULE_SETUP
-#line 81 "SPL_lex.l"
+#line 82 "SPL_lex.l"
 {AdjustPos(yytext);return T_DO;}
 	YY_BREAK
 case 56:
 YY_RULE_SETUP
-#line 82 "SPL_lex.l"
+#line 83 "SPL_lex.l"
 {AdjustPos(yytext);return T_DOWNTO;}
 	YY_BREAK
 case 57:
 YY_RULE_SETUP
-#line 83 "SPL_lex.l"
+#line 84 "SPL_lex.l"
 {AdjustPos(yytext);return T_ELSE;}
 	YY_BREAK
 case 58:
 YY_RULE_SETUP
-#line 84 "SPL_lex.l"
+#line 85 "SPL_lex.l"
 {AdjustPos(yytext);return T_END;}
 	YY_BREAK
 case 59:
 YY_RULE_SETUP
-#line 85 "SPL_lex.l"
+#line 86 "SPL_lex.l"
 {AdjustPos(yytext);return T_FOR;}
 	YY_BREAK
 case 60:
 YY_RULE_SETUP
-#line 86 "SPL_lex.l"
+#line 87 "SPL_lex.l"
 {AdjustPos(yytext);return T_FUNCTION;}
 	YY_BREAK
 case 61:
 YY_RULE_SETUP
-#line 87 "SPL_lex.l"
+#line 88 "SPL_lex.l"
 {AdjustPos(yytext);return T_GOTO;}
 	YY_BREAK
 case 62:
 YY_RULE_SETUP
-#line 88 "SPL_lex.l"
+#line 89 "SPL_lex.l"
 {AdjustPos(yytext);return T_IF;}
 	YY_BREAK
 case 63:
 YY_RULE_SETUP
-#line 89 "SPL_lex.l"
+#line 90 "SPL_lex.l"
 {AdjustPos(yytext);return T_IN;}
 	YY_BREAK
 case 64:
 YY_RULE_SETUP
-#line 90 "SPL_lex.l"
+#line 91 "SPL_lex.l"
 {AdjustPos(yytext);return T_MOD;}
 	YY_BREAK
 case 65:
 YY_RULE_SETUP
-#line 91 "SPL_lex.l"
+#line 92 "SPL_lex.l"
 {AdjustPos(yytext);return T_NOT;}
 	YY_BREAK
 case 66:
 YY_RULE_SETUP
-#line 92 "SPL_lex.l"
+#line 93 "SPL_lex.l"
 {AdjustPos(yytext);return T_OF;}
 	YY_BREAK
 case 67:
 YY_RULE_SETUP
-#line 93 "SPL_lex.l"
+#line 94 "SPL_lex.l"
 {AdjustPos(yytext);return T_OR;}
 	YY_BREAK
 case 68:
 YY_RULE_SETUP
-#line 94 "SPL_lex.l"
+#line 95 "SPL_lex.l"
 {AdjustPos(yytext);return T_PACKED;}
 	YY_BREAK
 case 69:
 YY_RULE_SETUP
-#line 95 "SPL_lex.l"
+#line 96 "SPL_lex.l"
 {AdjustPos(yytext);return T_PROCEDURE;}
 	YY_BREAK
 case 70:
 YY_RULE_SETUP
-#line 96 "SPL_lex.l"
+#line 97 "SPL_lex.l"
 {AdjustPos(yytext);return T_PROGRAM;}
 	YY_BREAK
 case 71:
 YY_RULE_SETUP
-#line 97 "SPL_lex.l"
+#line 98 "SPL_lex.l"
 {AdjustPos(yytext);return T_RECORD;}
 	YY_BREAK
 case 72:
 YY_RULE_SETUP
-#line 98 "SPL_lex.l"
+#line 99 "SPL_lex.l"
 {AdjustPos(yytext);return T_REPEAT;}
 	YY_BREAK
 case 73:
 YY_RULE_SETUP
-#line 99 "SPL_lex.l"
+#line 100 "SPL_lex.l"
 {AdjustPos(yytext);return T_SET;}
 	YY_BREAK
 case 74:
 YY_RULE_SETUP
-#line 100 "SPL_lex.l"
+#line 101 "SPL_lex.l"
 {AdjustPos(yytext);return T_THEN;}
 	YY_BREAK
 case 75:
 YY_RULE_SETUP
-#line 101 "SPL_lex.l"
+#line 102 "SPL_lex.l"
 {AdjustPos(yytext);return T_TO;}
 	YY_BREAK
 case 76:
 YY_RULE_SETUP
-#line 102 "SPL_lex.l"
+#line 103 "SPL_lex.l"
 {AdjustPos(yytext);return T_TYPE;}
 	YY_BREAK
 case 77:
 YY_RULE_SETUP
-#line 103 "SPL_lex.l"
+#line 104 "SPL_lex.l"
 {AdjustPos(yytext);return T_UNTIL;}
 	YY_BREAK
 case 78:
 YY_RULE_SETUP
-#line 104 "SPL_lex.l"
+#line 105 "SPL_lex.l"
 {AdjustPos(yytext);return T_VAR;}
 	YY_BREAK
 case 79:
 YY_RULE_SETUP
-#line 105 "SPL_lex.l"
+#line 106 "SPL_lex.l"
 {AdjustPos(yytext);return T_WHILE;}
 	YY_BREAK
 case 80:
 YY_RULE_SETUP
-#line 106 "SPL_lex.l"
+#line 107 "SPL_lex.l"
 {AdjustPos(yytext);return T_WITH;}
 	YY_BREAK
 /*identifiers*/
 case 81:
 YY_RULE_SETUP
-#line 109 "SPL_lex.l"
-{AdjustPos(yytext); yylval.sval = (char*)malloc(yyleng+1); strcpy(yylval.sval, yytext); return T_NAME;}
+#line 110 "SPL_lex.l"
+{AdjustPos(yytext); check_malloc(yylval.sval, yyleng+1); strcpy(yylval.sval, yytext); return T_NAME;}
 	YY_BREAK
 /*value*/
 case 82:
 YY_RULE_SETUP
-#line 112 "SPL_lex.l"
+#line 113 "SPL_lex.l"
 {AdjustPos(yytext); yylval.fval = atof(yytext); return T_REAL;}
 	YY_BREAK
 case 83:
 YY_RULE_SETUP
-#line 114 "SPL_lex.l"
+#line 115 "SPL_lex.l"
 {AdjustPos(yytext);yylval.ival = atoi(yytext); return T_INTEGER;}
 	YY_BREAK
 case 84:
 YY_RULE_SETUP
-#line 116 "SPL_lex.l"
+#line 117 "SPL_lex.l"
 {AdjustPos(yytext);BEGIN STRING_CHAR_MATCH;}
 	YY_BREAK
 case 85:
 YY_RULE_SETUP
-#line 117 "SPL_lex.l"
+#line 118 "SPL_lex.l"
 {
 		AdjustPos(yytext);
 		if( yyleng == 1){
 			yylval.cval = *yytext;
 			BEGIN CHAR_MATCHED;
 		}else{
-			yylval.sval = (char*)malloc(yyleng+1); 
+			check_malloc(yylval.sval, yyleng+1);
 			strcpy(yylval.sval, yytext);
 			BEGIN STRING_MATCHED;
 		}
@@ -1198,25 +1199,25 @@ YY_RULE_SETUP
 	YY_BREAK
 case 86:
 YY_RULE_SETUP
-#line 128 "SPL_lex.l"
+#line 129 "SPL_lex.l"
 {BEGIN INITIAL; return T_STRING;}
 	YY_BREAK
 case 87:
 YY_RULE_SETUP
-#line 129 "SPL_lex.l"
+#line 130 "SPL_lex.l"
 {BEGIN INITIAL; return T_CHAR;}
 	YY_BREAK
 case 88:
 YY_RULE_SETUP
-#line 131 "SPL_lex.l"
+#line 132 "SPL_lex.l"
 {EM_lex_error("Illegal Token identified!");}
 	YY_BREAK
 case 89:
 YY_RULE_SETUP
-#line 133 "SPL_lex.l"
+#line 134 "SPL_lex.l"
 ECHO;
 	YY_BREAK
-#line 1220 "SPL_lex.c"
+#line 1221 "SPL_lex.c"
 case YY_STATE_EOF(INITIAL):
 case YY_STATE_EOF(STRING_CHAR_MATCH):
 case YY_STATE_EOF(STRING_MATCHED):
@@ -2107,7 +2108,7 @@ int main()
 	return 0;
 	}
 #endif
-#line 133 "SPL_lex.l"
+#line 134 "SPL_lex.l"
 
 int yywrap(){
 	return 1;

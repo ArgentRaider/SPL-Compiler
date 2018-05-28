@@ -4,6 +4,7 @@
 	#include <string.h>
 	#include "SPL_parse.h"
 	#include "errormsg.h"
+	#include "utils.h"
 %}
 
 digit	[0-9]
@@ -106,7 +107,7 @@ newline \n
 <INITIAL>with		{AdjustPos(yytext);return T_WITH;}
 
  /*identifiers*/
-<INITIAL>[a-zA-Z][_a-zA-Z0-9]*	{AdjustPos(yytext); yylval.sval = (char*)malloc(yyleng+1); strcpy(yylval.sval, yytext); return T_NAME;}
+<INITIAL>[a-zA-Z][_a-zA-Z0-9]*	{AdjustPos(yytext); check_malloc(yylval.sval, yyleng+1); strcpy(yylval.sval, yytext); return T_NAME;}
 
  /*value*/
 <INITIAL>{real}	{AdjustPos(yytext); yylval.fval = atof(yytext); return T_REAL;}
@@ -120,7 +121,7 @@ newline \n
 			yylval.cval = *yytext;
 			BEGIN CHAR_MATCHED;
 		}else{
-			yylval.sval = (char*)malloc(yyleng+1); 
+			check_malloc(yylval.sval, yyleng+1);
 			strcpy(yylval.sval, yytext);
 			BEGIN STRING_MATCHED;
 		}

@@ -1,5 +1,7 @@
 *.bak
 *.exe
 *.bat
+*.sh
+*.o
 
 test_cases/

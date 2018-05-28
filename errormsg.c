@@ -5,7 +5,7 @@
 #include "SPL_parse.h"
 
 int debug = 0;
-bool hasError = false;
+int errorNum = 0;
 
 extern int yyleng;
 extern FILE *yyin;
@@ -50,7 +50,7 @@ void EM_error(int rowNum, int startColNum, int endColNum, char *message,...)
 {	
 	va_list ap; 
 
-	hasError = true;
+	errorNum++;
 
 	if (fileName) fprintf(stderr,"%s:",fileName);
 	fprintf(stderr,"%d.%d-%d: ", rowNum, startColNum, endColNum);
@@ -62,7 +62,7 @@ void EM_error(int rowNum, int startColNum, int endColNum, char *message,...)
 
 void EM_reset(char* fname)
 {
-	hasError=false; 
+	errorNum = 0;
 	fileName=fname; 
 	rowNum = 1;
 	startColNum = 0;

@@ -1,7 +1,7 @@
 #
 # makefile for SPL
 #
-OBJS = errormsg.o SPL_lex.o SPL_parse.o
+OBJS = errormsg.o SPL_lex.o SPL_parse.o utils.o
 RM   = rm.exe -f
 
 # rules
@@ -26,9 +26,11 @@ SPL_parse.o: SPL_parse.c SPL_parse.h errormsg.h
 
 errormsg.o: errormsg.c errormsg.h
 
+utils.o: utils.c utils.h
+
 SPL_parse.c: SPL_parse.y
 
-SPL_lex.c: SPL_lex.l
+SPL_lex.c: SPL_lex.l utils.h
 
 clean:
 	${RM} *.bak *.o

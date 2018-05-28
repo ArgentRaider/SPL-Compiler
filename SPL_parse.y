@@ -1,6 +1,7 @@
 %{
 	#include <stdio.h>
 	#include <string.h>
+	#include <time.h>
 	#include "errormsg.h"
 	#define YYERROR_VERBOSE 1
 
@@ -269,7 +270,14 @@ T_ID
 
 %%
 int main(){
+	time_t startTime, endTime;
+	startTime = time(NULL);
 	yyparse();
+	endTime = time(NULL);
+	
+	printf("Errors: %d\n", errorNum);
+	printf("Parsing Time: %f seconds\n", difftime(endTime, startTime));
+	
 	return 0;
 }
 

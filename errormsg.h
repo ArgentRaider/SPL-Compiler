@@ -7,7 +7,7 @@
 
 /* Global Variables */
 extern int debug;
-extern bool hasError;
+extern int errorNum;
 
 /* Pos Record */
 extern void AdjustPos(char* text);
