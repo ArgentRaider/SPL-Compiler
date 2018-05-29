@@ -14,6 +14,6 @@ extern void AdjustPos(char* text);
 extern void NewLine();
 
 extern void EM_lex_error(char *message, ...);
-extern void EM_error(int rowNum, int startColNum, int endColNum, char *message,...);
+extern void EM_error(int startRowNum, int endRowNum, int startColNum, int endColNum, char *message,...);
 
 #endif

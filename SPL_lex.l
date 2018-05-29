@@ -2,9 +2,13 @@
 	#include <stdio.h>
 	#include <stdlib.h>
 	#include <string.h>
-	#include "SPL_parse.h"
+	
 	#include "errormsg.h"
 	#include "utils.h"
+	#include "symbol.h"
+	#include "type.h"
+	#include "absyn.h"
+	#include "SPL_parse.h"
 %}
 
 digit	[0-9]
@@ -65,10 +69,11 @@ newline \n
 <INITIAL>succ		{AdjustPos(yytext);yylval.functval = SYS_FUNCT_SUCC; return T_SYS_FUNCT;}
 <INITIAL>write		{AdjustPos(yytext);yylval.procval = SYS_PROC_WRITE; return T_SYS_PROC;}
 <INITIAL>writeln	{AdjustPos(yytext);yylval.procval = SYS_PROC_WRITELN; return T_SYS_PROC;}
-<INITIAL>boolean	{AdjustPos(yytext);yylval.typeval = SYS_TYPE_BOOLEAN; return T_SYS_TYPE;}
-<INITIAL>char		{AdjustPos(yytext);yylval.typeval = SYS_TYPE_CHAR; return T_SYS_TYPE;}
-<INITIAL>integer	{AdjustPos(yytext);yylval.typeval = SYS_TYPE_INTEGER; return T_SYS_TYPE;}
-<INITIAL>real		{AdjustPos(yytext);yylval.typeval = SYS_TYPE_REAL; return T_SYS_TYPE;}
+<INITIAL>boolean	{AdjustPos(yytext);yylval.typeval = Ty_boolean; return T_SYS_TYPE;}
+<INITIAL>char		{AdjustPos(yytext);yylval.typeval = Ty_char; return T_SYS_TYPE;}
+<INITIAL>integer	{AdjustPos(yytext);yylval.typeval = Ty_integer; return T_SYS_TYPE;}
+<INITIAL>real		{AdjustPos(yytext);yylval.typeval = Ty_real; return T_SYS_TYPE;}
+<INITIAL>string		{AdjustPos(yytext);yylval.typeval = Ty_string; return T_SYS_TYPE;}
 
 <INITIAL>read		{AdjustPos(yytext);return T_READ;}
 
@@ -129,7 +134,7 @@ newline \n
 <STRING_MATCHED>\'	{BEGIN INITIAL; return T_STRING;}
 <CHAR_MATCHED>\'	{BEGIN INITIAL; return T_CHAR;}
 
-.					{EM_lex_error("Illegal Token identified!");}
+.					{EM_lex_error("Illegal Token!");}
 
 %%
 int yywrap(){

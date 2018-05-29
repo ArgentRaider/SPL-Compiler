@@ -39,8 +39,8 @@
    /* Put the tokens into the symbol table, so that GDB and other debuggers
       know about them.  */
    enum yytokentype {
-     T_NAME = 258,
-     T_STRING = 259,
+     T_STRING = 258,
+     T_NAME = 259,
      T_INTEGER = 260,
      T_BOOLEAN = 261,
      T_REAL = 262,
@@ -111,7 +111,7 @@ typedef union YYSTYPE
 {
 
 /* Line 1676 of yacc.c  */
-#line 10 "SPL_parse.y"
+#line 14 "SPL_parse.y"
 
 	int ival;
 	double fval;
@@ -121,12 +121,37 @@ typedef union YYSTYPE
 	enum SYS_FUNCT{SYS_FUNCT_ABS, SYS_FUNCT_CHR, SYS_FUNCT_ODD, 
 		SYS_FUNCT_ORD, SYS_FUNCT_PRED, SYS_FUNCT_SQR, SYS_FUNCT_SQRT, SYS_FUNCT_SUCC} functval;
 	enum SYS_PROC{SYS_PROC_WRITE, SYS_PROC_WRITELN} procval;
-	enum SYS_TYPE{SYS_TYPE_BOOLEAN, SYS_TYPE_CHAR, SYS_TYPE_INTEGER, SYS_TYPE_REAL} typeval;
+	SysType typeval;
+	
+	A_pro a_prog;
+	S_symbol s_symbol;
+	A_routine a_routine;
+	A_routineHead a_routineHead;
+	A_stmtList a_stmtList;
+	A_decList a_decList;
+	A_dec a_dec;
+	A_const a_constval;
+	A_type a_type;
+	A_simple a_simple;
+	A_array a_array;
+	A_fieldList a_fieldList;
+	A_nameList a_nameList;
+	A_range a_range;
+	A_field a_field;
+	A_varDecList a_varDecList;
+	A_routinePartHead a_routinePartHead;
+	A_paraList a_paraList;
+	A_paraField a_paraField;
+	A_stmt a_stmt;
+	A_exp a_exp;
+	A_caseList a_caseList;
+	A_case a_case;
+	A_expList a_expList;
 
 
 
 /* Line 1676 of yacc.c  */
-#line 130 "SPL_parse.h"
+#line 155 "SPL_parse.h"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */

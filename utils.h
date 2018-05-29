@@ -1,6 +1,8 @@
-#pragma once
 #ifndef _UTILS_H
 #define _UTILS_H
+
+#include <stdio.h>
+#include <stdlib.h>
 
 #define check_malloc(p, size) \
 	do{ \
@@ -11,6 +13,6 @@
 		} \
 	} while (0)
 
-void checked_malloc(unsigned size);
+void* checked_malloc(unsigned size);
 
 #endif

@@ -2,6 +2,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "errormsg.h"
+#include "type.h"
+#include "absyn.h"
 #include "SPL_parse.h"
 
 int debug = 0;
@@ -42,18 +44,18 @@ void NewLine(){
 void EM_lex_error(char *message, ...){
 	va_list ap;
 	va_start(ap, message);
-	EM_error(rowNum, startColNum, endColNum, message, ap);
+	EM_error(rowNum, rowNum, startColNum, endColNum, message, ap);
 	va_end(ap);
 }
 
-void EM_error(int rowNum, int startColNum, int endColNum, char *message,...)
+void EM_error(int startRowNum, int endRowNum, int startColNum, int endColNum, char *message,...)
 {	
 	va_list ap; 
 
 	errorNum++;
 
 	if (fileName) fprintf(stderr,"%s:",fileName);
-	fprintf(stderr,"%d.%d-%d: ", rowNum, startColNum, endColNum);
+	fprintf(stderr,"%d.%d-%d.%d: ", startRowNum, endRowNum, startColNum, endColNum);
 	va_start(ap,message);
 	vfprintf(stderr, message, ap);
 	va_end(ap);
@@ -69,7 +71,7 @@ void EM_reset(char* fname)
 	endColNum = 0;
 	yyin = fopen(fname,"r");
 	if (!yyin) {
-		EM_error(0, 0, 0,"cannot open"); 
+		EM_error(0, 0, 0, 0,"cannot open"); 
 		exit(1);
 	}
 }
