@@ -3,12 +3,12 @@
  *           abstract syntax rule.
  */
 
-
+#include <stdlib.h>
+#include <stdio.h>
 #include "symbol.h" /* symbol table data structures */
 #include "utils.h"
 #include "absyn.h"  /* abstract syntax data structures */
-#include <stdlib.h>
-#include <stdio.h>
+
 
 
 A_pro A_Program(A_pos pos, S_symbol name, A_routine routine)

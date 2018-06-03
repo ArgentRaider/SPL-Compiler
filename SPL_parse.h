@@ -107,6 +107,10 @@
 
 
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
+   enum SYS_CON { SYS_CON_FALSE, SYS_CON_TRUE, SYS_CON_MAXINT };
+   enum SYS_FUNCT {SYS_FUNCT_ABS, SYS_FUNCT_CHR, SYS_FUNCT_ODD,
+	   SYS_FUNCT_ORD, SYS_FUNCT_PRED, SYS_FUNCT_SQR, SYS_FUNCT_SQRT, SYS_FUNCT_SUCC};
+   enum SYS_PROC { SYS_PROC_WRITE, SYS_PROC_WRITELN };
 typedef union YYSTYPE
 {
 
@@ -117,10 +121,9 @@ typedef union YYSTYPE
 	double fval;
 	char cval;
 	char* sval;
-	enum SYS_CON{SYS_CON_FALSE, SYS_CON_TRUE, SYS_CON_MAXINT} conval;
-	enum SYS_FUNCT{SYS_FUNCT_ABS, SYS_FUNCT_CHR, SYS_FUNCT_ODD, 
-		SYS_FUNCT_ORD, SYS_FUNCT_PRED, SYS_FUNCT_SQR, SYS_FUNCT_SQRT, SYS_FUNCT_SUCC} functval;
-	enum SYS_PROC{SYS_PROC_WRITE, SYS_PROC_WRITELN} procval;
+	enum SYS_CON conval;
+	enum SYS_FUNCT functval;
+	enum SYS_PROC procval;
 	SysType typeval;
 	
 	A_pro a_prog;

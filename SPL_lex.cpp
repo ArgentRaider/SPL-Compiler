@@ -24,6 +24,7 @@
 
 #include <stdlib.h>
 #include <unistd.h>
+//#include <io.h>
 
 /* Use prototypes in function declarations. */
 #define YY_USE_PROTOS
@@ -1174,7 +1175,7 @@ YY_RULE_SETUP
 case 82:
 YY_RULE_SETUP
 #line 115 "SPL_lex.l"
-{AdjustPos(yytext); check_malloc(yylval.sval, yyleng+1); strcpy(yylval.sval, yytext); return T_NAME;}
+{AdjustPos(yytext); yylval.sval = (char*)checked_malloc(yyleng+1); strcpy(yylval.sval, yytext); return T_NAME;}
 	YY_BREAK
 /*value*/
 case 83:
@@ -1201,7 +1202,7 @@ YY_RULE_SETUP
 			yylval.cval = *yytext;
 			BEGIN CHAR_MATCHED;
 		}else{
-			check_malloc(yylval.sval, yyleng+1);
+			yylval.sval = (char*)checked_malloc(yyleng + 1);
 			strcpy(yylval.sval, yytext);
 			BEGIN STRING_MATCHED;
 		}

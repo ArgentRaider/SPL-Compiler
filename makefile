@@ -16,36 +16,36 @@ RM   = rm.exe -f
 all: $(BIN)
 
 SPL.exe: $(OBJS)
-	@echo gcc -std=c99 -o $@ $(OBJS)
-	@gcc  -std=c99 -o $@ $(OBJS)
+	@echo g++ -std=c++11 -o $@ $(OBJS)
+	@g++  -std=c++11 -o $@ $(OBJS)
 	@echo ' '
 
-test_unit.exe: test_unit.o symbol.o
-	@gcc -std=c99 -o $@ $^
+test_unit.exe: test_unit.o symbol.o utils.o
+	@g++ -std=c++11 -o $@ $^
 
 .PHONY: all clean
 
 # source
-SPL_lex.o: SPL_lex.c SPL_parse.h errormsg.h
+SPL_lex.o: SPL_lex.cpp SPL_parse.h errormsg.h
 
-SPL_parse.o: SPL_parse.c SPL_parse.h errormsg.h
+SPL_parse.o: SPL_parse.cpp SPL_parse.h errormsg.h
 
-errormsg.o: errormsg.c errormsg.h
+errormsg.o: errormsg.cpp errormsg.h
 
-symbol.o: symbol.c symbol.h
+symbol.o: symbol.cpp symbol.h
 
-type.o: type.c type.h
+type.o: type.cpp type.h
 
-utils.o: utils.c utils.h
+utils.o: utils.cpp utils.h
 
-absyn.o: absyn.c absyn.h
+absyn.o: absyn.cpp absyn.h
 
-test_unit.o: test_unit.c symbol.h
-	gcc -c -o $@ $<
+test_unit.o: test_unit.cpp symbol.h
+	g++ -c -o $@ $<
 
-SPL_parse.c: SPL_parse.y
+# SPL_parse.c: SPL_parse.y
 
-SPL_lex.c: SPL_lex.l utils.h
+# SPL_lex.c: SPL_lex.l utils.h
 
 
 clean:

@@ -71,6 +71,8 @@
 #line 1 "SPL_parse.y"
 
 	#define YYERROR_VERBOSE 1
+int yyerror(char *s);
+extern int yylex(void);
 
 	#include <stdio.h>
 	#include <string.h>
@@ -985,7 +987,7 @@ while (YYID (0))
 
 
 /* YYLEX -- calling `yylex' with the right arguments.  */
-
+//extern int yylex();
 #ifdef YYLEX_PARAM
 # define YYLEX yylex (YYLEX_PARAM)
 #else

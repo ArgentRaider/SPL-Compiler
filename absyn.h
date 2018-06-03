@@ -65,14 +65,14 @@ struct A_routineHead_st{
 	A_decList routinePart;
 };
 
-
+enum A_dec_st_kind {
+	A_constDec,
+	A_typeDec,
+	A_varDec,
+	A_routineDec,
+} ;
 struct A_dec_st{
-	enum {
-		A_constDec,
-		A_typeDec,
-		A_varDec,
-		A_routineDec,
-	} kind;
+	A_dec_st_kind kind;
 	A_pos pos;
 	S_symbol name;
 	union {
@@ -102,9 +102,9 @@ struct A_const_st {
 };
 
 
-
+enum A_range_st_kind { A_constRange, A_nameRange };
 struct A_range_st{
-	enum {A_constRange, A_nameRange} kind;
+	A_range_st_kind kind;
 	A_pos pos;
 	union {
 		A_const lconst;
@@ -116,14 +116,14 @@ struct A_range_st{
 	} upper_u;
 };
 
-
+enum A_simple_st_kind{
+	A_simpleSysType,
+	A_simpleNameType,
+	A_simpleNameListType,
+	A_simpleRangeType
+};
 struct A_simple_st{
-	enum {
-		A_simpleSysType, 
-		A_simpleNameType, 
-		A_simpleNameListType, 
-		A_simpleRangeType
-	} kind;
+	A_simple_st_kind kind;
 	A_pos pos;
 	union {
 		A_sysType sysType;
@@ -141,12 +141,13 @@ struct A_array_st{
 	A_type type;
 };
 
+enum A_type_st_kind{
+	A_simpleType,
+	A_arrayType,
+	A_recordType
+};
 struct A_type_st {
-	enum {
-		A_simpleType,
-		A_arrayType,
-		A_recordType
-	} kind;
+	A_type_st_kind kind;
 	A_pos pos;
 	union {
 		A_simple simple;
@@ -180,7 +181,7 @@ struct A_routinePart_st {
 };
 
 struct A_routinePartHead_st {
-	enum routineKind kind;
+	routineKind kind;
 	A_pos pos;
 	S_symbol name;
 	A_paraList parameters;
@@ -196,7 +197,7 @@ struct A_paraList_st {
 struct A_paraField_st
 {
 	// kind: Var->left value; Value->right value
-	enum paraKind kind;
+	paraKind kind;
 	A_pos pos;
 	A_simple simpleType;
 	A_nameList nameList;
@@ -211,12 +212,13 @@ typedef struct A_forStmt_st {A_var var; A_exp initValue; int direction; A_exp fi
 typedef struct A_caseStmt_st {A_exp test; A_caseList caselist;} A_caseS;
 typedef struct A_gotoStmt_st {int label;} A_gotoS;
 
+enum A_stmt_st_kind {
+	A_assignStmt, A_procStmt, A_compundStmt,
+	A_ifStmt, A_repeatStmt, A_whileStmt,
+	A_forStmt, A_caseStmt, A_gotoStmt
+} ;
 struct A_stmt_st { 
-	enum {
-		A_assignStmt, A_procStmt, A_compundStmt,
-		A_ifStmt, A_repeatStmt, A_whileStmt,
-		A_forStmt, A_caseStmt, A_gotoStmt
-	} kind;
+	A_stmt_st_kind kind;
 	A_pos pos;
 	int label;
 	union{
@@ -246,8 +248,9 @@ typedef OperatorType A_oper;
 
 typedef struct A_op_st {A_oper oper; A_exp left; A_exp right;} *A_op;
 
+enum A_exp_st_kind{ A_funcExp, A_nameExp, A_varExp, A_constExp, A_opExp };
 struct A_exp_st {
-	enum {A_funcExp, A_nameExp, A_varExp, A_constExp, A_opExp} kind;
+	A_exp_st_kind kind;
 	A_pos pos;
 	A_type valueType;
 	union{
@@ -266,9 +269,10 @@ struct A_proc_st {
 	A_expList args;
 };
 
+enum A_var_st_kind { A_pureID, A_arrayElement, A_recordField };
 struct A_var_st
 {
-	enum {A_pureID, A_arrayElement, A_recordField} kind;
+	A_var_st_kind kind;
 	S_symbol ID;
 	A_type valueType;
 	union{

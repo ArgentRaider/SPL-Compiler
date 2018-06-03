@@ -2,8 +2,7 @@
 #include "utils.h"
 
 S_symbol S_Symbol(char * name){
-	S_symbol s;
-	check_malloc(s, sizeof(*s));
+	S_symbol s = (S_symbol)checked_malloc(sizeof(*s));
 	s->name = name;
 	return s;
 }
