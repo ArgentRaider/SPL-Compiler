@@ -81,6 +81,7 @@ extern int yylex(void);
 	#include "symbol.h"
 	#include "type.h"
 	#include "absyn.h"
+  #include "semantics.h"
 	A_pro root = NULL;
 
 
@@ -2968,6 +2969,7 @@ int main(){
 	time_t startTime, endTime;
 	startTime = time(NULL);
 	yyparse();
+  Se_Analyse(root);
 	endTime = time(NULL);
 	
 	printf("Errors: %d\n", errorNum);

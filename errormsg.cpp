@@ -2,8 +2,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "errormsg.h"
-#include "type.h"
-#include "absyn.h"
 #include "SPL_parse.h"
 
 int debug = 0;
@@ -60,6 +58,14 @@ void EM_error(int startRowNum, int endRowNum, int startColNum, int endColNum, ch
 	vfprintf(stderr, message, ap);
 	va_end(ap);
 	fprintf(stderr,"\n");
+}
+
+void EM_error(A_pos pos, char *message, ...)
+{
+	va_list ap; 
+	va_start(ap,message);
+	EM_error(pos.first_line, pos.last_line, pos.first_column, pos.last_column, ap);
+	va_end(ap);
 }
 
 void EM_reset(char* fname)

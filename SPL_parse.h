@@ -31,8 +31,12 @@
    
    This special exception was added by the Free Software Foundation in
    version 2.2 of Bison.  */
+#ifndef _SPL_PARSE_H
+#define _SPL_PARSE_H
 
-
+#include "type.h"
+#include "symbol.h"
+#include "absyn.h"
 /* Tokens.  */
 #ifndef YYTOKENTYPE
 # define YYTOKENTYPE
@@ -178,3 +182,4 @@ typedef struct YYLTYPE
 
 extern YYLTYPE yylloc;
 
+#endif

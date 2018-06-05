@@ -23,8 +23,16 @@
 #ifdef __cplusplus
 
 #include <stdlib.h>
+#ifdef __GNUC__ 
 #include <unistd.h>
-//#include <io.h>
+#define STRCPY_S(dst, len, src) strcpy(dst, src)
+#define FILE_NO(file) fileno(file)
+#endif
+#ifdef _MSC_VER
+#include <io.h>
+#define STRCPY_S(dst, len, src) strcpy_s(dst, len, src)
+#define FILE_NO(file) _fileno(file)
+#endif
 
 /* Use prototypes in function declarations. */
 #define YY_USE_PROTOS
@@ -518,7 +526,6 @@ char *yytext;
 	#include "utils.h"
 	#include "symbol.h"
 	#include "type.h"
-	#include "absyn.h"
 	#include "SPL_parse.h"
 #define STRING_CHAR_MATCH 1
 #define STRING_MATCHED 2
@@ -526,7 +533,7 @@ char *yytext;
 #define COMMENT_PARENTHESE 4
 #define COMMENT_BRACE 5
 
-#line 529 "SPL_lex.c"
+#line 529 "SPL_lex.cpp"
 
 /* Macros after this point can all be overridden by user definitions in
  * section 1.
@@ -679,7 +686,7 @@ YY_DECL
 
 #line 22 "SPL_lex.l"
 
-#line 682 "SPL_lex.c"
+#line 682 "SPL_lex.cpp"
 
 	if ( yy_init )
 		{
@@ -1175,7 +1182,7 @@ YY_RULE_SETUP
 case 82:
 YY_RULE_SETUP
 #line 115 "SPL_lex.l"
-{AdjustPos(yytext); yylval.sval = (char*)checked_malloc(yyleng+1); strcpy(yylval.sval, yytext); return T_NAME;}
+{AdjustPos(yytext); yylval.sval = (char*)checked_malloc(yyleng+1); STRCPY_S(yylval.sval, yyleng+1, yytext); return T_NAME;}
 	YY_BREAK
 /*value*/
 case 83:
@@ -1203,7 +1210,7 @@ YY_RULE_SETUP
 			BEGIN CHAR_MATCHED;
 		}else{
 			yylval.sval = (char*)checked_malloc(yyleng + 1);
-			strcpy(yylval.sval, yytext);
+			STRCPY_S(yylval.sval, yyleng+1, yytext);
 			BEGIN STRING_MATCHED;
 		}
 	}
@@ -1228,7 +1235,7 @@ YY_RULE_SETUP
 #line 139 "SPL_lex.l"
 ECHO;
 	YY_BREAK
-#line 1231 "SPL_lex.c"
+#line 1231 "SPL_lex.cpp"
 case YY_STATE_EOF(INITIAL):
 case YY_STATE_EOF(STRING_CHAR_MATCH):
 case YY_STATE_EOF(STRING_MATCHED):
@@ -1824,7 +1831,7 @@ FILE *file;
 #if YY_NEVER_INTERACTIVE
 	b->yy_is_interactive = 0;
 #else
-	b->yy_is_interactive = file ? (isatty( fileno(file) ) > 0) : 0;
+	b->yy_is_interactive = file ? (isatty( FILE_NO(file) ) > 0) : 0;
 #endif
 #endif
 	}
