@@ -40,11 +40,11 @@ void test(){
 		S_symbol s = S_Symbol(name);\
 		char* n = S_name(s); \
 		EXPECT_EQ_STRING(name, n); \
-		free(s); \
 	}while(0)
 
 void test_symbol(void){
 	TEST_SYMBOL("haha");
+	TEST_SYMBOL("_a");
 	TEST_SYMBOL("_a");
 	TEST_SYMBOL("23;a*)^");
 }

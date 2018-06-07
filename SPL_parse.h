@@ -37,6 +37,7 @@
 #include "type.h"
 #include "symbol.h"
 #include "absyn.h"
+
 /* Tokens.  */
 #ifndef YYTOKENTYPE
 # define YYTOKENTYPE

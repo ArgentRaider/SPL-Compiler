@@ -6,13 +6,13 @@ A project for the course 'Compilers'.
 - [x] Lexical Analysis (using flex)
 - [x] Parsing (using Bison) (All test cases except 'array.spl' passed.)
 - [x] AST
-- [ ] Semantic Analysis
+- [x] Semantic Analysis(Type check and Name translate)
 - [ ] IR Generator (plan to use LLVM API)
 - [ ] Backend (plan to use LLVM)
 
 ### Target Features
 - [x] Error locating in lexical analysis
-- [ ] Error locating and recovery in parsing
+- [x] Error locating and recovery in parsing
 - [x] Store location information in AST nodes for error locating in semantic analysis
 
 

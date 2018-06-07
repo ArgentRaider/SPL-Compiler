@@ -74,9 +74,9 @@
 int yyerror(char *s);
 extern int yylex(void);
 
-	#include <stdio.h>
-	#include <string.h>
-	#include <time.h>
+	#include <cstdio>
+	#include <cstring>
+	#include <ctime>
 	#include "errormsg.h"
 	#include "symbol.h"
 	#include "type.h"
@@ -86,7 +86,7 @@ extern int yylex(void);
 
 
 /* Line 189 of yacc.c  */
-#line 87 "SPL_parse.c"
+#line 87 "SPL_parse.cpp"
 
 /* Enabling traces.  */
 #ifndef YYDEBUG
@@ -225,7 +225,7 @@ typedef union YYSTYPE
 
 
 /* Line 214 of yacc.c  */
-#line 226 "SPL_parse.c"
+#line 226 "SPL_parse.cpp"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
@@ -250,7 +250,7 @@ typedef struct YYLTYPE
 
 
 /* Line 264 of yacc.c  */
-#line 251 "SPL_parse.c"
+#line 251 "SPL_parse.cpp"
 
 #ifdef short
 # undef short
@@ -290,7 +290,7 @@ typedef short int yytype_int16;
 #  define YYSIZE_T size_t
 # elif ! defined YYSIZE_T && (defined __STDC__ || defined __C99__FUNC__ \
      || defined __cplusplus || defined _MSC_VER)
-#  include <stddef.h> /* INFRINGES ON USER NAME SPACE */
+#  include <cstddef> /* INFRINGES ON USER NAME SPACE */
 #  define YYSIZE_T size_t
 # else
 #  define YYSIZE_T unsigned int
@@ -383,7 +383,7 @@ YYID (yyi)
 #  if (defined __cplusplus && ! defined _STDLIB_H \
        && ! ((defined YYMALLOC || defined malloc) \
 	     && (defined YYFREE || defined free)))
-#   include <stdlib.h> /* INFRINGES ON USER NAME SPACE */
+#   include <cstdlib> /* INFRINGES ON USER NAME SPACE */
 #   ifndef _STDLIB_H
 #    define _STDLIB_H 1
 #   endif
@@ -999,7 +999,7 @@ while (YYID (0))
 #if YYDEBUG
 
 # ifndef YYFPRINTF
-#  include <stdio.h> /* INFRINGES ON USER NAME SPACE */
+#  include <cstdio> /* INFRINGES ON USER NAME SPACE */
 #  define YYFPRINTF fprintf
 # endif
 
@@ -2176,7 +2176,7 @@ yyreduce:
 
 /* Line 1455 of yacc.c  */
 #line 215 "SPL_parse.y"
-    {(yyval.a_paraField) = A_VarParaField((yyloc), (yyvsp[(1) - (3)].a_nameList), (yyvsp[(3) - (3)].a_simple));;}
+    {(yyval.a_paraField) = A_ValParaField((yyloc), (yyvsp[(1) - (3)].a_nameList), (yyvsp[(3) - (3)].a_simple));;}
     break;
 
   case 61:
@@ -2744,7 +2744,7 @@ yyreduce:
 
 
 /* Line 1455 of yacc.c  */
-#line 2745 "SPL_parse.c"
+#line 2745 "SPL_parse.cpp"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -2969,17 +2969,21 @@ int main(){
 	time_t startTime, endTime;
 	startTime = time(NULL);
 	yyparse();
-  Se_Analyse(root);
+  if(!errorNum){
+    Se_Analyse(root);
+  }
 	endTime = time(NULL);
-	
-	printf("Errors: %d\n", errorNum);
+  
 	printf("Parsing Time: %f seconds\n", difftime(endTime, startTime));
+	printf("Errors: %d\n", errorNum);
+  printf("Warnings: %d\n", warningNum);
 	
 	return 0;
 }
 
 int yyerror(char *s) 
 { 
-     fprintf(stderr, "%s\n", s); 
+     errorNum++;
+     fprintf(stderr, "%d.%d-%d.%d: %s\n",yylloc.first_line, yylloc.first_column, yylloc.last_line, yylloc.last_column, s); 
      return 0; 
 }

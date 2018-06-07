@@ -39,12 +39,19 @@ A_routineHead A_RoutineHead(A_pos pos, A_decList constPart, A_decList typePart, 
 	p->routinePart = routinePart;
 	return p;
 }
-A_decList A_DecList(A_dec head, A_decList next)
+A_decList A_DecList(A_dec tail, A_decList headList)
 {
 	A_decList p = (A_decList)checked_malloc(sizeof(*p));
-	p->head = head;
-	p->next = next;
-	return p;
+	p->head = tail;
+	p->next = nullptr;
+	if(headList){
+		A_decList ptr = headList;
+		while(ptr->next != nullptr) ptr = ptr->next;
+		ptr->next = p;
+	}else{
+		headList = p;
+	}
+	return headList;
 }
 /* A_dec */
 A_dec A_ConstDec(A_pos pos, S_symbol name, A_const value)
@@ -208,12 +215,19 @@ A_range A_NameRange(A_pos pos, S_symbol lo, S_symbol up)
 	return p;
 }
 
-A_nameList A_NameList(A_name head, A_nameList next)
+A_nameList A_NameList(A_name tail, A_nameList headList)
 {
 	A_nameList p = (A_nameList)checked_malloc(sizeof(*p));
-	p->head=head;
-	p->next=next;
-	return p;
+	p->head = tail;
+	p->next = nullptr;
+	if(headList){
+		A_nameList ptr = headList;
+		while(ptr->next != nullptr) ptr = ptr->next;
+		ptr->next = p;
+	}else{
+		headList = p;
+	}
+	return headList;
 }
 
 A_name A_Name(A_pos pos, S_symbol name)
@@ -237,12 +251,19 @@ A_array A_Array(A_pos pos, A_range range, A_type type)
 
 
 
-A_fieldList A_FieldList(A_field head, A_fieldList next)
+A_fieldList A_FieldList(A_field tail, A_fieldList headList)
 {
 	A_fieldList p = (A_fieldList)checked_malloc(sizeof(*p));
-	p->head=head;
-	p->next=next;
-	return p;
+	p->head = tail;
+	p->next = nullptr;
+	if(headList){
+		A_fieldList ptr = headList;
+		while(ptr->next != nullptr) ptr = ptr->next;
+		ptr->next = p;
+	}else{
+		headList = p;
+	}
+	return headList;
 }
 
 A_field A_Field(A_pos pos, A_nameList nameList, A_type type)
@@ -279,33 +300,40 @@ A_routinePartHead A_FuncHead(A_pos pos, S_symbol name, A_paraList parameters, A_
 	p->pos = pos;
 	p->name = name;
 	p->parameters = parameters;
-	p->simpleType = simpleType;
+	p->retType = A_SimpleType(simpleType->pos, simpleType);
 	return p;
 }
 
 A_routinePartHead A_ProcHead(A_pos pos, S_symbol name, A_paraList parameters)
 {
 	A_routinePartHead p = (A_routinePartHead)checked_malloc(sizeof(*p));
-	p->kind = A_function;
+	p->kind = A_procedure;
 	p->pos = pos;
 	p->name = name;
 	p->parameters = parameters;
-	p->simpleType = NULL;
+	p->retType = NULL;
 	return p;
 }
 
-A_paraList A_ParaList(A_paraField field, A_paraList next){
+A_paraList A_ParaList(A_paraField field, A_paraList headList){
 	A_paraList p = (A_paraList)checked_malloc(sizeof(*p));
 	p->field = field;
-	p->next = next;
-	return p;
+	p->next = nullptr;
+	if(headList){
+		A_paraList ptr = headList;
+		while(ptr->next != nullptr) ptr = ptr->next;
+		ptr->next = p;
+	}else{
+		headList = p;
+	}
+	return headList;
 }
 
 A_paraField A_VarParaField(A_pos pos, A_nameList nameList, A_simple simpleType){
 	A_paraField p = (A_paraField)checked_malloc(sizeof(*p));
 	p->pos = pos;
 	p->nameList = nameList;
-	p->simpleType = simpleType;
+	p->type = A_SimpleType(simpleType->pos, simpleType);
 	p->kind = Var;
 	return p;
 }
@@ -313,7 +341,7 @@ A_paraField A_ValParaField(A_pos pos, A_nameList nameList, A_simple simpleType){
 	A_paraField p = (A_paraField)checked_malloc(sizeof(*p));
 	p->pos = pos;
 	p->nameList = nameList;
-	p->simpleType = simpleType;
+	p->type = A_SimpleType(simpleType->pos, simpleType);
 	p->kind = Value;
 	return p;
 }
@@ -322,6 +350,7 @@ A_var A_Var(A_pos pos, S_symbol ID){
 	A_var p = (A_var)checked_malloc(sizeof(*p));
 	p->ID = ID;
 	p->kind = A_pureID;
+	p->pos = pos;
 	return p;
 }
 A_var A_ArrayElement(A_pos pos, S_symbol ID, A_exp subscript){
@@ -329,6 +358,7 @@ A_var A_ArrayElement(A_pos pos, S_symbol ID, A_exp subscript){
 	p->ID = ID;
 	p->u.subscript = subscript;
 	p->kind = A_arrayElement;
+	p->pos = pos;
 	return p;
 }
 A_var A_RecordField(A_pos pos, S_symbol ID, S_symbol fieldID){
@@ -336,6 +366,7 @@ A_var A_RecordField(A_pos pos, S_symbol ID, S_symbol fieldID){
 	p->ID = ID;
 	p->u.fieldID = fieldID;
 	p->kind = A_recordField;
+	p->pos = pos;
 	return p;
 }
 
@@ -344,7 +375,7 @@ A_proc A_Proc(A_pos pos, S_symbol function, A_expList args)
 	A_proc p = (A_proc)checked_malloc(sizeof(*p));
 	p->pos = pos;
 	p->args = args;
-	p->kind = A_function;
+//	p->kind = A_procedure;
 	p->name = function;
 	return p;
 }
@@ -463,12 +494,19 @@ A_stmt A_GotoStmt(A_pos pos, int label)
 	return p;
 }
 
-A_caseList A_CaseList(A_case head, A_caseList next)
+A_caseList A_CaseList(A_case tail, A_caseList headList)
 {
 	A_caseList p = (A_caseList)checked_malloc(sizeof(*p));
-	p->head = head;
-	p->next = next;
-	return p;
+	p->head = tail;
+	p->next = nullptr;
+	if(headList){
+		A_caseList ptr = headList;
+		while(ptr->next != nullptr) ptr = ptr->next;
+		ptr->next = p;
+	}else{
+		headList = p;
+	}
+	return headList;
 }
 
 A_case A_Case(A_pos pos, A_const constValue, S_symbol name, A_stmt body)
@@ -480,12 +518,19 @@ A_case A_Case(A_pos pos, A_const constValue, S_symbol name, A_stmt body)
 	return p;
 }
 
-A_expList A_ExpList(A_exp head, A_expList next)
+A_expList A_ExpList(A_exp tail, A_expList headList)
 {
 	A_expList p = (A_expList)checked_malloc(sizeof(*p));
-	p->next = next;
-	p->head = head;
-	return p;
+	p->head = tail;
+	p->next = nullptr;
+	if(headList){
+		A_expList ptr = headList;
+		while(ptr->next != nullptr) ptr = ptr->next;
+		ptr->next = p;
+	}else{
+		headList = p;
+	}
+	return headList;
 }
 
 A_exp A_NameExp(A_pos pos, S_symbol name)
@@ -494,6 +539,7 @@ A_exp A_NameExp(A_pos pos, S_symbol name)
 	p->pos = pos;
 	p->kind = A_nameExp;
 	p->u.name = name;
+	p->valueType = nullptr;
 	return p;
 }
 
@@ -503,6 +549,7 @@ A_exp A_VarExp(A_pos pos, A_var var)
 	p->pos = pos;
 	p->kind = A_varExp;
 	p->u.var = var;
+	p->valueType = nullptr;
 	return p;
 }
 
@@ -512,6 +559,7 @@ A_exp A_FuncExp(A_pos pos, A_proc func)
 	p->pos = pos;
 	p->kind = A_funcExp;
 	p->u.func = func;
+	p->valueType = nullptr;
 	return p;
 }
 
@@ -521,6 +569,7 @@ A_exp A_ConstExp(A_pos pos, A_const constValue)
 	p->pos = pos;
 	p->kind = A_constExp;
 	p->u.constValue = constValue;
+	p->valueType = nullptr;
 	return p;
 }
 
@@ -533,6 +582,7 @@ A_exp A_OpExp(A_pos pos, A_oper oper, A_exp left, A_exp right)
 	p->u.op->left = left;
 	p->u.op->right = right;
 	p->u.op->oper = oper;
+	p->valueType = nullptr;
 	return p;
 }
 

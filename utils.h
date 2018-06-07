@@ -1,8 +1,9 @@
 #ifndef _UTILS_H
 #define _UTILS_H
 
-#include <stdio.h>
-#include <stdlib.h>
+#include <cstdio>
+#include <cstdlib>
+#include "absyn.h"
 
 #define check_malloc(p, size) \
 	do{ \
@@ -14,5 +15,13 @@
 	} while (0)
 
 void* checked_malloc(unsigned size);
+
+double GetConstValue(A_const constVal);
+
+inline bool isSysType(A_type type, SysType sysType){
+	return type && type->kind == A_simpleType \
+		&& type->u.simple->kind == A_simpleSysType \
+		&& type->u.simple->u.sysType == sysType; 
+}
 
 #endif

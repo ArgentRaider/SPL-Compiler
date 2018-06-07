@@ -6,11 +6,12 @@
 
 typedef enum SysType_
 {
+	Ty_null = 0,
 	Ty_boolean = 1,		//     1
 	Ty_char = 2,		//    10
 	Ty_integer = 11,  	//  1011
 	Ty_real = 27,		// 11011
-	Ty_string = 6,		//   110
+	Ty_string = 6,		//   100
 } SysType;
 
 int canConvert(int dstType, int srcType);

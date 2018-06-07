@@ -212,7 +212,7 @@ para_decl_list
 	| para_type_list							{$$ = A_ParaList($1, NULL);}
 para_type_list
 	: var_para_list T_COLON simple_type_decl	{$$ = A_VarParaField(@$, $1, $3);}
-	| val_para_list T_COLON simple_type_decl	{$$ = A_VarParaField(@$, $1, $3);}
+	| val_para_list T_COLON simple_type_decl	{$$ = A_ValParaField(@$, $1, $3);}
 var_para_list
 	: T_VAR name_list							{$$ = $2;}
 val_para_list

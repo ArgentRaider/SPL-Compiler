@@ -7,9 +7,6 @@
 #ifndef _ABSYN_H
 #define _ABSYN_H
 
-struct YYLTYPE;
-typedef struct YYLTYPE A_pos;
-
 typedef struct A_pro_st *A_pro;
 typedef struct A_routine_st *A_routine;
 typedef struct A_routineHead_st *A_routineHead;
@@ -42,6 +39,8 @@ typedef struct A_expList_st *A_expList;
 #include "symbol.h"
 #include "type.h"
 #include "SPL_parse.h"
+
+typedef struct YYLTYPE A_pos;
 
 struct A_pro_st{
 	A_pos pos;
@@ -185,7 +184,7 @@ struct A_routinePartHead_st {
 	A_pos pos;
 	S_symbol name;
 	A_paraList parameters;
-	A_simple simpleType;
+	A_type retType;
 };
 
 enum paraKind {Var, Value};
@@ -196,10 +195,10 @@ struct A_paraList_st {
 
 struct A_paraField_st
 {
-	// kind: Var->left value; Value->right value
+	// kind: Var->Reference param; Value->Value param
 	paraKind kind;
 	A_pos pos;
-	A_simple simpleType;
+	A_type type;
 	A_nameList nameList;
 };
 
@@ -262,8 +261,9 @@ struct A_exp_st {
 	}u;
 };
 
+// NOT FOR defining a routine but FOR calling one
 struct A_proc_st {
-	enum routineKind kind;
+//	enum routineKind kind;
 	A_pos pos;
 	S_symbol name;
 	A_expList args;
@@ -272,6 +272,7 @@ struct A_proc_st {
 enum A_var_st_kind { A_pureID, A_arrayElement, A_recordField };
 struct A_var_st
 {
+	A_pos pos;
 	A_var_st_kind kind;
 	S_symbol ID;
 	A_type valueType;
@@ -318,7 +319,7 @@ A_routine A_Routine(A_pos pos, A_routineHead head, A_stmtList compoundStmt);
 
 /*routine head*/
 A_routineHead A_RoutineHead(A_pos pos, A_decList constPart, A_decList typePart, A_decList varPart, A_decList routinePart);
-A_decList A_DecList(A_dec head, A_decList next);
+A_decList A_DecList(A_dec tail, A_decList headList);
 /*const part*/
 A_dec A_ConstDec(A_pos pos, S_symbol name, A_const value);
 A_const A_Integer(A_pos pos, int i);//const_value
@@ -338,13 +339,13 @@ A_simple A_SimpleNameListType(A_pos pos, A_nameList namelist);
 
 A_range A_ConstRange(A_pos pos, A_const lo, A_const up);
 A_range A_NameRange(A_pos pos, S_symbol lo, S_symbol up);
-A_nameList A_NameList(A_name head, A_nameList next);
+A_nameList A_NameList(A_name tail, A_nameList headList);
 A_name A_Name(A_pos pos, S_symbol name);
 
 A_array A_Array(A_pos pos, A_range range, A_type type);
 A_type A_ArrayType(A_pos pos, A_array array);
 A_type A_RecordType(A_pos pos, A_fieldList fieldList);
-A_fieldList A_FieldList(A_field head, A_fieldList next);
+A_fieldList A_FieldList(A_field tail, A_fieldList headList);
 A_field A_Field(A_pos pos, A_nameList nameList, A_type type);
 
 /*var part*/
@@ -358,7 +359,7 @@ A_routinePartHead A_FuncHead(A_pos pos, S_symbol name, A_paraList parameters, A_
 A_routinePartHead A_ProcHead(A_pos pos, S_symbol name, A_paraList parameters);
 //procedure is treated as a special kind function
 
-A_paraList A_ParaList(A_paraField field, A_paraList next);
+A_paraList A_ParaList(A_paraField field, A_paraList headList);
 A_paraField A_VarParaField(A_pos pos,A_nameList nameList, A_simple simpleType);
 A_paraField A_ValParaField(A_pos pos, A_nameList nameList, A_simple simpleType);
 
@@ -388,7 +389,7 @@ A_caseList A_CaseList(A_case head, A_caseList next);
 A_case A_Case(A_pos pos, A_const constValue, S_symbol name, A_stmt body);
 
 /*expression*/
-A_expList A_ExpList(A_exp head, A_expList next);
+A_expList A_ExpList(A_exp tail, A_expList headList);
 // a name unknown to be a Var, a const var or a Funct without parameter list yet. It might be replaced in Semantic Analysis.
 A_exp A_NameExp(A_pos pos, S_symbol name);
 // specifically created for array elements or record fields
