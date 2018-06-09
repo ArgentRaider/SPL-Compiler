@@ -598,6 +598,7 @@ void* Se_AnalyseExp(A_exp node){
 				node->u.var = A_Var(node->pos, node->u.name);
 				node->kind = A_varExp;
 				node->valueType = n.u.var->type;
+				node->u.var->valueType = node->valueType;
 
 				// Get the variable
 				// You may build a IR node from this variable v or use another way
@@ -606,6 +607,7 @@ void* Se_AnalyseExp(A_exp node){
 				node->u.var = A_Var(node->pos, node->u.name);
 				node->kind = A_varExp;
 				node->valueType = n.u.ref->type;
+				node->u.var->valueType = node->valueType;
 
 				// Get the Referenced variable
 				// You may build a IR node from this variable r

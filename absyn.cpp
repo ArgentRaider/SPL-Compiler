@@ -351,6 +351,7 @@ A_var A_Var(A_pos pos, S_symbol ID){
 	p->ID = ID;
 	p->kind = A_pureID;
 	p->pos = pos;
+	p->valueType = nullptr;
 	return p;
 }
 A_var A_ArrayElement(A_pos pos, S_symbol ID, A_exp subscript){
@@ -359,6 +360,7 @@ A_var A_ArrayElement(A_pos pos, S_symbol ID, A_exp subscript){
 	p->u.subscript = subscript;
 	p->kind = A_arrayElement;
 	p->pos = pos;
+	p->valueType = nullptr;
 	return p;
 }
 A_var A_RecordField(A_pos pos, S_symbol ID, S_symbol fieldID){
@@ -367,6 +369,7 @@ A_var A_RecordField(A_pos pos, S_symbol ID, S_symbol fieldID){
 	p->u.fieldID = fieldID;
 	p->kind = A_recordField;
 	p->pos = pos;
+	p->valueType = nullptr;
 	return p;
 }
 

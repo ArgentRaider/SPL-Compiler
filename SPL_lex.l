@@ -28,8 +28,8 @@ newline \n
 <INITIAL>"{"					{AdjustPos(yytext); BEGIN COMMENT_BRACE;}
 <COMMENT_PARENTHESE>"*)"		{AdjustPos(yytext); BEGIN INITIAL;}
 <COMMENT_BRACE>"}"				{AdjustPos(yytext); BEGIN INITIAL;}
-<COMMENT_PARENTHESE>.*			{AdjustPos(yytext);}
-<COMMENT_BRACE>.*				{AdjustPos(yytext);}
+<COMMENT_PARENTHESE>.			{AdjustPos(yytext);}
+<COMMENT_BRACE>.				{AdjustPos(yytext);}
 
  /*operators*/
 <INITIAL>"("		{AdjustPos(yytext);return T_LP;}
