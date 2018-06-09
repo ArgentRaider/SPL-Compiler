@@ -828,6 +828,8 @@ void* Se_AnalyseForStmt(A_forS* forStmt, A_pos pos){
 					EM_warning(pos, "The loop will never be executed.");
 				}
 			}
+			bool tmp;
+			Se_AnalyseStmt(forStmt->body, nullptr, tmp);
 			// construct your IR node here.
 		}
 	}
